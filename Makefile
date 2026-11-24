@@ -9,12 +9,13 @@ OBJETOS   = $(FONTES:.c=.o)
 
 all: $(BINARIO)
 
-$(BINARIO): $(OBJETOS)$(CC) $(CFLAGS) -o$(BINARIO) $(OBJETOS)$(LDFLAGS)
+$(BINARIO): $(OBJETOS)
+	$(CC) $(CFLAGS) -o $(BINARIO) $(OBJETOS) $(LDFLAGS)
 
 %.o: %.c
-	$(CC)$(CFLAGS) -c $< -o$@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJETOS)$(BINARIO)
+	rm -f $(OBJETOS) $(BINARIO)
 
 .PHONY: all clean
